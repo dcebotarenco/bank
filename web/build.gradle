@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+}
+
+group 'bugdone.io'
+version '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation(project(":domain"))
+    implementation 'org.springdoc:springdoc-openapi-ui:1.6.12'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+}
+
+test {
+    useJUnitPlatform()
+}
+
