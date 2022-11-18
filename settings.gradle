@@ -1,1 +1,4 @@
 rootProject.name = 'bank-cqrs-demo'
+include 'domain'
+include 'web-app'
+
