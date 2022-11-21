@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group 'bugdone.io'
+group 'io.bugdone'
 version '0.0.1-SNAPSHOT'
 
 repositories {
@@ -11,8 +11,11 @@ repositories {
 
 dependencies {
     implementation(project(":web"))
+    implementation(project(":domain"))
+    implementation(project(":projections"))
+    implementation(project(":services"))
     runtimeOnly 'com.h2database:h2'
-    implementation("org.springframework.boot:spring-boot-autoconfigure")
+    implementation "org.springframework.boot:spring-boot-autoconfigure"
 }
 
 test {

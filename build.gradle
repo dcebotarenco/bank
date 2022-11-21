@@ -4,7 +4,7 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 }
 
-group = 'bugdone.io'
+group = 'io.bugdone'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
@@ -39,13 +39,16 @@ subprojects {
 
     dependencies {
         implementation 'org.projectlombok:lombok'
+        implementation 'org.springframework.boot:spring-boot-starter'
         annotationProcessor 'org.projectlombok:lombok'
         testCompileOnly 'org.projectlombok:lombok'
         testAnnotationProcessor 'org.projectlombok:lombok'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
-        implementation('org.axonframework:axon-spring-boot-starter') {
-            exclude group: 'org.axonframework', module: "axon-server-connector"
-        }
+        implementation('org.axonframework:axon-spring-boot-starter')
+    }
+    
+    test {
+        useJUnitPlatform()
     }
 }
 
