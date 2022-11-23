@@ -1,17 +1,14 @@
 package io.bugdone.command.service.accounts;
 
-import io.bugdone.accounts.BankAccountAggregate;
-import io.bugdone.accounts.CreateAccountCommand;
-import io.bugdone.accounts.CreditMoneyCommand;
-import io.bugdone.accounts.DebitMoneyCommand;
+import io.bugdone.projection.accounts.*;
 import lombok.AllArgsConstructor;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.springframework.stereotype.Service;
-
-import java.util.UUID;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @AllArgsConstructor
+@Transactional
 class AccountCommandServiceAxon implements AccountCommandService {
 
     private final CommandGateway commandGateway;
@@ -31,5 +28,17 @@ class AccountCommandServiceAxon implements AccountCommandService {
     public String debitMoney(DebitMoneyCommand debitMoneyCommand) {
         BankAccountAggregate account = commandGateway.sendAndWait(debitMoneyCommand);
         return account.getId();
+    }
+
+    @Override
+    public String borrowCredit(AskCreditLineCommand askCreditLineCommand) {
+        Object o = commandGateway.sendAndWait(askCreditLineCommand);
+        return null;
+    }
+
+    @Override
+    public String reimburseCreditLine(ReimburseCreditLineCommand reimburseCreditLineCommand) {
+        Object o = commandGateway.sendAndWait(reimburseCreditLineCommand);
+        return null;
     }
 }

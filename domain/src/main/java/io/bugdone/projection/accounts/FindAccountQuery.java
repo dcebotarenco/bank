@@ -1,4 +1,4 @@
-package io.bugdone.accounts;
+package io.bugdone.projection.accounts;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

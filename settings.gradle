@@ -4,4 +4,5 @@ include 'web'
 include 'domain'
 include 'projections'
 include 'services'
+include 'integration-tests'
 

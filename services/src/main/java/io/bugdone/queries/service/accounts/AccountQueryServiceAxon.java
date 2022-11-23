@@ -1,6 +1,6 @@
 package io.bugdone.queries.service.accounts;
 
-import io.bugdone.accounts.FindAccountQuery;
+import io.bugdone.projection.accounts.FindAccountQuery;
 import io.bugdone.projection.BankAccountProjection;
 import lombok.AllArgsConstructor;
 import org.axonframework.messaging.responsetypes.ResponseTypes;
@@ -11,7 +11,7 @@ import java.util.concurrent.CompletableFuture;
 
 @Service
 @AllArgsConstructor
-class AccountQueryServiceImpl implements AccountQueryService {
+class AccountQueryServiceAxon implements AccountQueryService {
 
     private final QueryGateway queryGateway;
 

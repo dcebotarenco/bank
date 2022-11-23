@@ -1,0 +1,10 @@
+dependencies {
+    implementation(project(":domain"))
+    implementation(project(":projections"))
+    implementation(project(":services"))
+    runtimeOnly 'com.h2database:h2'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'com.github.gavlyukovskiy:datasource-proxy-spring-boot-starter'
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+}

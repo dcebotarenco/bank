@@ -1,4 +1,4 @@
-package io.bugdone.accounts;
+package io.bugdone.projection.accounts;
 
 import io.bugdone.projection.BankAccountProjection;
 import org.springframework.data.jpa.repository.JpaRepository;

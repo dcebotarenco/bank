@@ -1,8 +1,9 @@
 package io.bugdone.commands;
 
-import io.bugdone.accounts.CreateAccountCommand;
-import io.bugdone.accounts.CreditMoneyCommand;
-import io.bugdone.accounts.DebitMoneyCommand;
+import io.bugdone.projection.accounts.CreateAccountCommand;
+import io.bugdone.projection.accounts.CreditMoneyCommand;
+import io.bugdone.projection.accounts.DebitMoneyCommand;
+import io.bugdone.projection.accounts.ReimburseCreditLineCommand;
 import io.bugdone.command.service.accounts.AccountCommandService;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
@@ -36,6 +37,17 @@ class AccountCommandController {
     public String debitMoneyFromAccount(@PathVariable(value = "accountId") String accountId,
             @RequestBody DebitAccountDto debitAccountDto) {
         return this.accountCommandService.debitMoney(new DebitMoneyCommand(accountId, debitAccountDto.getDebitAmount()));
+    }
+
+    @PostMapping(value = "/{accountId}/creditLines")
+    public String askCreditLine(@PathVariable(value = "accountId") String accountId,
+            @RequestBody CreateCreditLineDto createCreditLineDto) {
+        return this.accountCommandService.creditMoney(new CreditMoneyCommand(accountId, createCreditLineDto.getAmount()));
+    }
+
+    @PutMapping(value = "/{accountId}/creditLines/{creditLine}/reimburse")
+    public String reimburseCreditLine(@PathVariable(value = "accountId") String accountId, @PathVariable(value = "creditLine") String creditLine) {
+        return this.accountCommandService.reimburseCreditLine(new ReimburseCreditLineCommand(creditLine));
     }
 
 }

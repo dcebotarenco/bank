@@ -1,8 +1,6 @@
 package io.bugdone.command.service.accounts;
 
-import io.bugdone.accounts.CreateAccountCommand;
-import io.bugdone.accounts.CreditMoneyCommand;
-import io.bugdone.accounts.DebitMoneyCommand;
+import io.bugdone.projection.accounts.*;
 
 public interface AccountCommandService {
     String createAccount(CreateAccountCommand createAccountCommand);
@@ -10,4 +8,8 @@ public interface AccountCommandService {
     String creditMoney(CreditMoneyCommand creditMoneyCommand);
 
     String debitMoney(DebitMoneyCommand debitMoneyCommand);
+
+    String borrowCredit(AskCreditLineCommand askCreditLineCommand);
+
+    String reimburseCreditLine(ReimburseCreditLineCommand reimburseCreditLineCommand);
 }

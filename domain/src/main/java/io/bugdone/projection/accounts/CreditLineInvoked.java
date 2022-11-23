@@ -1,20 +1,18 @@
-package io.bugdone.accounts;
+package io.bugdone.projection.accounts;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.EqualsAndHashCode;
 import org.axonframework.modelling.command.TargetAggregateIdentifier;
 
 import java.math.BigDecimal;
-import java.util.UUID;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class DebitMoneyCommand {
+@EqualsAndHashCode(callSuper = false)
+public class CreditLineInvoked extends BaseEvent {
 
     @TargetAggregateIdentifier
     private String accountId;
-    private BigDecimal debitAmount;
+    private BigDecimal borrowedAmount;
 }
-
