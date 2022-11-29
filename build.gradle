@@ -18,6 +18,9 @@ repositories {
     mavenCentral()
 }
 
+
+
+
 subprojects {
     apply plugin: 'java'
     apply plugin: 'org.springframework.boot'
@@ -28,14 +31,14 @@ subprojects {
     }
 
     dependencyManagement {
+        dependencies {
+            dependency 'com.github.gavlyukovskiy:datasource-proxy-spring-boot-starter:1.8.1'
+            dependency 'org.springdoc:springdoc-openapi-ui:1.6.12'
+        }
         imports {
             mavenBom 'org.axonframework:axon-bom:4.6.1'
         }
-        dependencies {
-            dependency 'com.github.gavlyukovskiy:datasource-proxy-spring-boot-starter:1.8.1'
-        }
     }
-
 
     dependencies {
         implementation 'org.projectlombok:lombok'
@@ -46,7 +49,7 @@ subprojects {
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
         implementation('org.axonframework:axon-spring-boot-starter')
     }
-    
+
     test {
         useJUnitPlatform()
     }

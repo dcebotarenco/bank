@@ -1,0 +1,8 @@
+dependencies {
+    implementation 'org.springdoc:springdoc-openapi-ui'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation project(':bank-query-service:services')
+    implementation project(':bank-query-service:domain')
+    implementation project(':domain')
+}

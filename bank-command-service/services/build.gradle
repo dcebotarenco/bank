@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+}
+
+group 'io.bugdone'
+version '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework:spring-tx' //in case switching to jpa store
+    implementation project(':domain')
+}
+
+test {
+    useJUnitPlatform()
+}

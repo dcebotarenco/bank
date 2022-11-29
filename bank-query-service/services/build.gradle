@@ -1,0 +1,5 @@
+
+dependencies {
+    implementation project(':bank-query-service:domain')
+    implementation project(':domain')
+}

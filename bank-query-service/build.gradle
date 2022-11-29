@@ -1,0 +1,19 @@
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'com.github.gavlyukovskiy:datasource-proxy-spring-boot-starter'
+    runtimeOnly 'com.h2database:h2'
+    implementation(project(":bank-query-service:services"))
+    implementation(project(":bank-query-service:domain"))
+    implementation(project(":bank-query-service:web"))
+    implementation('org.axonframework:axon-spring-boot-starter')
+}
+
+
+subprojects {
+    dependencies {
+        implementation('org.axonframework:axon-spring-boot-starter')
+        implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    }
+}
+

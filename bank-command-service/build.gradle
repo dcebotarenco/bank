@@ -1,0 +1,14 @@
+
+dependencies {
+    implementation(project(":bank-command-service:web"))
+    implementation(project(":domain"))
+    implementation(project(":bank-command-service:services"))
+    implementation "org.springframework.boot:spring-boot-autoconfigure"
+    implementation('org.axonframework:axon-spring-boot-starter')
+}
+
+subprojects {
+    dependencies {
+        implementation('org.axonframework:axon-spring-boot-starter')
+    }
+}
