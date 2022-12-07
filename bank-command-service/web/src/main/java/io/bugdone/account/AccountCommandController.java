@@ -39,6 +39,11 @@ class AccountCommandController {
         this.accountCommandService.debitMoney(new DebitMoneyCommand(accountId, debitAccountDto.getAmount()));
     }
 
+    @PutMapping(value = "/validate/{accountId}")
+    public void validatePayment(@PathVariable(value = "accountId") String accountId) {
+        this.accountCommandService.validatePayment(new ValidatePaymentCommand(accountId));
+    }
+
     @PostMapping(value = "/{accountId}/creditLines")
     public void askCreditLine(@PathVariable(value = "accountId") String accountId,
             @RequestBody CreateCreditLineDto createCreditLineDto) {

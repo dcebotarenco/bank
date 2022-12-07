@@ -33,6 +33,11 @@ class AccountCommandServiceAxon implements AccountCommandService {
     }
 
     @Override
+    public void validatePayment(ValidatePaymentCommand validatePaymentCommand) {
+        commandGateway.sendAndWait(validatePaymentCommand);
+    }
+
+    @Override
     public void reimburseCreditLine(ReimburseCreditLineCommand reimburseCreditLineCommand) {
         commandGateway.sendAndWait(reimburseCreditLineCommand);
     }

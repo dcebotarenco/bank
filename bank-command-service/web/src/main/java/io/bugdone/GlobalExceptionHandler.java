@@ -1,6 +1,8 @@
 package io.bugdone;
 
 import io.bugdone.account.BusinessException;
+import org.axonframework.commandhandling.CommandExecutionException;
+import org.axonframework.common.AxonException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,8 +14,8 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(value = { BusinessException.class })
-    protected ResponseEntity<Object> handleConflict(BusinessException ex, WebRequest request) {
+    @ExceptionHandler(value = { CommandExecutionException.class })
+    protected ResponseEntity<Object> handleConflict(CommandExecutionException ex, WebRequest request) {
         String bodyOfResponse = ex.getMessage();
         return handleExceptionInternal(ex, bodyOfResponse, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
     }

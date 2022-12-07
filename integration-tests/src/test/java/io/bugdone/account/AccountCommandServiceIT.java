@@ -59,7 +59,7 @@ class AccountCommandServiceIT {
     @SneakyThrows
     void createAccount_usingAxon_projectionUpdated() {
         String id = accountCommandServiceAxon.createAccount(new CreateAccountCommand(UUID.randomUUID().toString(), BigDecimal.TEN, "Dan"));
-        Thread.sleep(1000);
+        Thread.sleep(2000);
         assertThat(accountQueryService.findByLogicalId(id).get())
                 .satisfies(p -> {
                     assertThat(p.getBalance()).isEqualByComparingTo(BigDecimal.TEN);
@@ -67,23 +67,6 @@ class AccountCommandServiceIT {
                     assertThat(p.getLogicalId()).isEqualTo(id);
                     assertThat(p.getOwner()).isEqualTo("Dan");
                 });
-    }
-
-    @Test
-    void creditMoney() {
-        //todo same as above
-    }
-
-    @Test
-    void debitMoney() {
-    }
-
-    @Test
-    void borrowCredit() {
-    }
-
-    @Test
-    void reimburseCreditLine() {
     }
 
     @Configuration

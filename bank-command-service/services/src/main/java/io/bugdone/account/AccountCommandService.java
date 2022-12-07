@@ -9,5 +9,7 @@ public interface AccountCommandService {
 
     void borrowCredit(AskCreditLineCommand askCreditLineCommand);
 
+    void validatePayment(ValidatePaymentCommand validatePaymentCommand);
+
     void reimburseCreditLine(ReimburseCreditLineCommand reimburseCreditLineCommand);
 }
